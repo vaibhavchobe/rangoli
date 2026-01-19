@@ -9,19 +9,50 @@
 <body>
 
 <header>
-  <h1>Shree Readymade Rangoli</h1>
-  <p>Handmade • Reusable • Festive</p>
+  <h1>Kulkarni's Readymade Rangoli</h1>
+  <p>Traditional • Reusable • Handcrafted • Washable</p>
 </header>
 
-<section class="products">
-  <h2>Our Rangoli Collection</h2>
-  <div id="gallery" class="gallery"></div>
+<!-- Language Toggle -->
+<div class="lang-switch">
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('hi')">हिंदी</button>
+  <button onclick="setLang('mr')">मराठी</button>
+</div>
+
+<!-- Festive Banner -->
+<section class="festive-banner">
+  <h2 id="banner-title">Festive Rangoli Collection</h2>
+  <p id="banner-sub">
+    Perfect for Diwali, Weddings & Home Entrance
+  </p>
 </section>
+
+
+<section class="products">
+  <h2>Soft Mat Rangoli</h2>
+  <div id="soft-gallery" class="thumb-gallery"></div>
+</section>
+
+<section class="products">
+  <h2>Moti Rangoli</h2>
+  <div id="moti-gallery" class="thumb-gallery"></div>
+</section>
+
+<!-- Modal -->
+<div id="image-modal" class="modal">
+  <span class="close" onclick="closeModal()">×</span>
+  <img id="modal-img">
+  <p id="modal-price"></p>
+  <a id="whatsapp-btn" class="btn" target="_blank">
+    Order on WhatsApp
+  </a>
+</div>
 
 <footer>
   <p>Order on WhatsApp: 91XXXXXXXXXX</p>
 </footer>
 
-<script src="gallery.js"></script>
+<script src="inventory.js"></script>
 </body>
 </html>
