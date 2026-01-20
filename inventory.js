@@ -1,9 +1,10 @@
-const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+const WHATSAPP_NUMBER = "+917350825391";
 
 let currentLang = "en";
 
 const text = {
   en: {
+    banner: "Festive Rangoli Collection",
     soft: "Soft Mat Rangoli",
     moti: "Moti Rangoli",
     order: "Order on WhatsApp",
@@ -11,6 +12,7 @@ const text = {
     available: "Available"
   },
   hi: {
+    banner: "त्योहारी रंगोली संग्रह",
     soft: "सॉफ्ट मैट रंगोली",
     moti: "मोती रंगोली",
     order: "व्हाट्सऐप पर ऑर्डर करें",
@@ -18,6 +20,7 @@ const text = {
     available: "उपलब्ध"
   },
   mr: {
+    banner: "सणांसाठी खास रांगोळी संग्रह",
     soft: "सॉफ्ट मॅट रांगोळी",
     moti: "मोती रांगोळी",
     order: "व्हॉट्सअ‍ॅपवर ऑर्डर करा",
@@ -71,7 +74,8 @@ function openModal(folder, file, price) {
   document.getElementById("modal-price").innerText =
       `₹${price}`;
 
-  const msg = `I want to order ${file} priced at ₹${price}`;
+  const productType = folder === "soft" ? text[currentLang].soft : text[currentLang].moti;
+  const msg = `Hi, I want to order ${productType} priced at ₹${price}`;
   document.getElementById("whatsapp-btn").innerText = text[currentLang].order;
   document.getElementById("whatsapp-btn").href =
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
@@ -87,10 +91,9 @@ function setLang(lang) {
   currentLang = lang;
   renderAll();
 
-  document.getElementById("banner-title").innerText =
-      lang === "hi" ? "त्योहारी रंगोली संग्रह" :
-          lang === "mr" ? "सणांसाठी खास रांगोळी संग्रह" :
-              "Festive Rangoli Collection";
+  document.getElementById("banner-title").innerText = text[lang].banner;
+  document.getElementById("soft-title").innerText = text[lang].soft;
+  document.getElementById("moti-title").innerText = text[lang].moti;
 
   document.getElementById("banner-sub").innerText =
       lang === "hi" ? "दीपावली, शादी और घर के प्रवेश के लिए" :
